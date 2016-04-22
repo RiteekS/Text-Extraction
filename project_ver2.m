@@ -1,0 +1,15 @@
+a=imread('2_NEW.jpg');
+f=graythresh(a);
+b1=im2bw(a,f);
+se=strel('disk',2);
+b=imopen(b1,se);
+b=imopen(b,se);
+c=filt(b);
+d=summer(c);
+%mser;
+%mser_trial;
+%P=textrem(d,b);
+P=textrem1(d,a);
+%textrem1_mod(d);
+subplot(1,2,1),imshow(a,[]),title('Original Input');
+subplot(1,2,2),imshow(P,[]),title('Final Output');
